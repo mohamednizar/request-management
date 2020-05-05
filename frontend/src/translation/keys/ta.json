@@ -11,8 +11,12 @@
   "request.management.report.incidents.forms.button.finish": "நிறைவு செய்க ",
 
   "request.management.report.incidents": "கோரிக்கை அல்லது குறைகளை சமர்ப்பிக்கவும்",
-  "request.management.report.incidents.helper.text": "* நிரப்புதல் கட்டாயமானது.",
+  "request.management.report.incidents.helper.text": "* உடன் குறிக்கப்பட்ட புலங்கள் கட்டாயமாகும்.",
   "request.management.report.incidents.helper.text2": "உங்கள் விருப்பமான மொழியைத் தேர்ந்தெடுத்து கீழே உள்ள படிவத்தை நிரப்பவும்.",
+  "request.management.report.incidents.helper.text3": "கோரிக்கை தேதி / நேரம் சேர்க்கவும். கோரிக்கை அழைப்பு மூலம் செய்யப்பட்டால், கோரிக்கை தேதி அழைப்பின் தேதி. கோரிக்கை மின்னஞ்சல், கடிதம் மற்றும் தொலைநகல் மூலம் செய்யப்பட்டால், அது அந்த முறைகளில் வழங்கப்பட்ட தேதி.",
+  "request.management.report.incidents.helper.text4": "ஒருவரின் சார்பாக கோரிக்கை - ஒருவரின் சார்பாக வேண்டுகோள் விடுக்கப்பட்டால், 'ஆம்' என்பதைக் கிளிக் செய்து பெறுநரின் தகவலை நிரப்பவும். இல்லையென்றால், 'இல்லை' என்பதைக் கிளிக் செய்க",
+  "request.management.report.incidents.helper.text5": "தயவுசெய்து உங்கள் விருப்பமான மொழியைத் தேர்ந்தெடுத்து கீழே உள்ள படிவத்தை நிரப்பவும்.",
+  "request.management.report.incidents.helper.text6": "ஒருவரின் சார்பாக கோரிக்கை - நீங்கள் ஒருவரின் சார்பாக வேண்டுகோள் விடுக்கிறீர்கள் என்றால், 'ஆம்' என்பதைக் கிளிக் செய்து பெறுநரின் தகவலை நிரப்பவும்",
 
   "request.management.report.incidents.section.describe": "விவரங்களை இங்கே உள்ளிடவும்",
   "request.management.report.incidents.section.listitem1": "உங்கள் விஷயத்தை தெளிவாக விளக்குங்கள்",

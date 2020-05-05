@@ -5,6 +5,7 @@ import uuid
 
 class NotificationType(enum.Enum):
     INCIDENT_ASSIGNED="Incident assigned"
+    INCIDENT_CLOSED="Incident closed"
     OTHER = "Custom notification type"
 
 class Notification(models.Model):

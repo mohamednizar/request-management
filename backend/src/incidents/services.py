@@ -676,11 +676,6 @@ def incident_close(user: User, incident: Incident, details: str):
         raise WorkflowException(
             "All pending actions needs to be resolved first")
 
-    # if outcomes == 0:
-    #     raise WorkflowException(
-    #         "Incident need at least 1 resolution outcome before closing")
-
-
     comment_data = {
         "comment": details["remark"],
         "is_outcome": True
@@ -723,11 +718,21 @@ To check status:
 {1}/report/status?refId={0}""".format(incident.refId, settings.APP_BASE_URL)
 
     send_incident_changed_email_sms(incident, subject, message)
+    # sending notifications
+    # get the default Org/Division -> PS
+    default_division = Division.objects.get(is_default_division=True)
+
+    # check if the user from PS
+    # if user.profile.organization != default_division.organization:
+    # if issue closing user is not from PS, send notification
+    # find PS user from linked users
+    for linked_user in incident.linked_individuals.all():
+        if linked_user.profile.organization == default_division.organization:
+            # send notification
+            add_notification(NotificationType.INCIDENT_CLOSED, 
+                                    user, linked_user, incident)
 
     event_services.update_workflow_event(user, incident, workflow)
-
-
-
 
 def incident_escalate_external_action(user: User, incident: Incident, entity: object, comment: str):
     evt_description = None
@@ -868,7 +873,7 @@ def incident_provide_information(user: User, incident: Incident, comment: str, s
     initiated_workflow.is_information_provided = True
     initiated_workflow.save()
 
-    if (ncident.current_status != StatusType.ACTION_PENDING.name and not has_pending_information_request(incident)) :
+    if (incident.current_status != StatusType.ACTION_PENDING.name and not has_pending_information_request(incident)) :
         status = IncidentStatus(
             current_status=StatusType.INFORMATION_PROVIDED,
             previous_status=incident.current_status,

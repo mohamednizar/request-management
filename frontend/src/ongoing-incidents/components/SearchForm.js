@@ -88,7 +88,7 @@ function SearchForm(props) {
   useEffect(() => {
     filterIncidents(props.filters);
   }, []);
-  const { classes, categories } = props;
+  const { classes, categories, listType } = props;
   // const severityValues = Array(10).fill(0).map((e, i) => i + 1);
   const severityValues = ['High','Medium','Low'];
   const institutions = useSelector(state => state.shared.institutions);
@@ -190,13 +190,11 @@ function SearchForm(props) {
                         <MenuItem value="">
                           <em>None</em>
                         </MenuItem>
-                        <MenuItem value={"NEW"}>New/Unverified</MenuItem>
-                        <MenuItem value={"VERIFIED"}>Verified</MenuItem>
-                        {/* <MenuItem value={"CLOSED"}>Closed</MenuItem> */}
-                        {/* <MenuItem value={"ACTION_TAKEN"}>Action Taken</MenuItem> */}
-                        <MenuItem value={"ACTION_PENDING"}>Action Pending</MenuItem>
-                        {/* <MenuItem value={"INFORMATION_PROVIDED"}>Information Provided</MenuItem>
-                        <MenuItem value={"INFORMATION_REQESTED"}>Information Requested</MenuItem> */}
+                        {listType == "review" && (<MenuItem value={"NEW"}>New/Unverified</MenuItem>)}
+                        {listType == "review" && (<MenuItem value={"VERIFIED"}>Verified</MenuItem>)}
+                        {listType == "review" && (<MenuItem value={"ACTION_PENDING"}>Action Pending</MenuItem>)}
+                        {listType == "archive" && (<MenuItem value={"CLOSED"}>Closed</MenuItem>)}
+                        {listType == "archive" && (<MenuItem value={"INVALIDATED"}>Invalidated</MenuItem>)}
                       </Select>
                     </FormControl>
                     <FormControl className={classes.formControl}>

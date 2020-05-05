@@ -11,8 +11,12 @@
   "request.management.report.incidents.forms.button.finish": "Submit",
 
   "request.management.report.incidents": "Submit a Request or Grievance",
-  "request.management.report.incidents.helper.text": "* fields are mandatory.",
-  "request.management.report.incidents.helper.text2": "Select your language of preference and fill in the form below.",
+  "request.management.report.incidents.helper.text": "Fields denoted with an * are mandatory.",
+  "request.management.report.incidents.helper.text2": "Select your language of preference and then fill in the form below.",
+  "request.management.report.incidents.helper.text3": "Include the Request Date/Time. If the request is made by call, the request date is the date of the call. If the request is made by email, letter, and fax, it is the date provided in those modes.",
+  "request.management.report.incidents.helper.text4": "Request on behalf of someone - If a request is made on behalf of someone, click 'Yes' and fill in the Recipient Information. If not, click 'No'",
+  "request.management.report.incidents.helper.text5": "Please select your language of preference and then fill in the form below.",
+  "request.management.report.incidents.helper.text6": "Request on behalf of someone - If you are making a request on behalf of someone, click 'Yes' and fill in the Recipient Information",
 
   "request.management.report.incidents.section.describe": "Enter details here",
   "request.management.report.incidents.section.listitem1": "Explain your matter clearly",

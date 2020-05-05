@@ -89,6 +89,7 @@ function ReviewComplaintsListView({ classes, ...props }) {
       <Grid item xs={12} sm={12}>
       <SearchForm
         incidentType='COMPLAINT'
+        listType="review"
         categories={categories}
         handleSearchClick={handleSearchClick}
         filters={filters}

@@ -138,9 +138,16 @@ const EventActions = (props) => {
       <Divider variant="middle" className={classes.topDivider} />
 
       <List className={classes.root}>
-        <ListItem>
+        <ListItem
+          button
+          onClick={() => {
+            if (activeIncident.linked_individuals.length > 0) {
+              dispatch(showModal("LINKED_INDIVIDUAL_MODAL", { activeIncident }));
+            }
+          }}
+        >
           <Avatar>
-            <PermIdentityIcon />
+            <PermIdentityIcon/>
           </Avatar>
           <ListItemText
             primary="Assigned to"
@@ -169,7 +176,7 @@ const EventActions = (props) => {
             )}
         </ListItem>
 
-        <ListItem>
+        {/* <ListItem>
           <Avatar>
             <AccessTimeIcon />
           </Avatar>
@@ -187,7 +194,7 @@ const EventActions = (props) => {
                 <MenuOpenIcon />
               </IconButton>
             </ListItemSecondaryAction>
-        </ListItem>
+        </ListItem> */}
 
         <ListItem>
           <Avatar>

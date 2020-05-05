@@ -21,7 +21,6 @@ def read_notification(notification: Notification):
     notification.save()
 
 def add_notification(notification_type: NotificationType, actioned_by, send_to, incident=None):
-    print(notification_type)
     notification = Notification(
         notification_type=notification_type.name,
         send_to=send_to,
@@ -31,7 +30,6 @@ def add_notification(notification_type: NotificationType, actioned_by, send_to, 
     notification.save()
 
     serializer = NotificationSerializer(notification)
-    print(serializer.data)
 
     channel_layer = get_channel_layer()
     async_to_sync(channel_layer.group_send)(

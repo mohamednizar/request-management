@@ -18,7 +18,7 @@ const LinkedIndividualsModal = (props) => {
 
     return (
         <div>
-            <DialogTitle id="form-dialog-title">Linked Individuals</DialogTitle>
+            <DialogTitle id="form-dialog-title">Assigned Individuals</DialogTitle>
             <DialogContent style={{ marginTop: 10 }}>
                 <UserList userIds={activeIncident.linked_individuals}/>
             </DialogContent>

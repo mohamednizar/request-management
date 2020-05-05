@@ -11,8 +11,12 @@
   "request.management.report.incidents.forms.button.finish": "අවසන් කරන්න",
 
   "request.management.report.incidents": "ඉල්ලීමක් / දුක්ගැනවිල්ලක් ඉදිරිපත් කරන්න",
-  "request.management.report.incidents.helper.text": "* අනිවාර්ය වේ.",
+  "request.management.report.incidents.helper.text": "* සමඟ දැක්වෙන ක්ෂේත්‍ර අනිවාර්ය වේ.",
   "request.management.report.incidents.helper.text2": "ඔබේ මනාප භාෂාව තෝරා පහත පෝරමය පුරවන්න.",
+  "request.management.report.incidents.helper.text3": "ඉල්ලීම් දිනය / වේලාව ඇතුළත් කරන්න. ඉල්ලීම ඇමතුමකින් සිදු කරන්නේ නම්, ඉල්ලීමේ දිනය ඇමතුමේ දිනය වේ. ඉල්ලීම විද්‍යුත් තැපෑල, ලිපි සහ ෆැක්ස් මගින් කරනු ලැබේ නම්, එය එම මාතයන්හි දක්වා ඇති දිනයයි.",
+  "request.management.report.incidents.helper.text4": "වෙනත් අයෙකු වෙනුවෙන් - වෙනත් අයෙකු වෙනුවෙන් ඉල්ලීමක් කරන්නේ නම්  'ඔව්' තෝරා ලබන්නාගේ තොරතුරු පුරවන්න. එසේ නොවේ නම්, 'නැත' තෝරන්න",
+  "request.management.report.incidents.helper.text5": "කරුණාකර ඔබේ මනාප භාෂාව තෝරාගෙන පහත පෝරමය පුරවන්න.",
+  "request.management.report.incidents.helper.text6": "වෙනත් අයෙකු වෙනුවෙන් - වෙනත් අයෙකු වෙනුවෙන් ඉල්ලීමක් කරන්නේ නම්  'ඔව්' තෝරා ලබන්නාගේ තොරතුරු පුරවන්න.",
 
   "request.management.report.incidents.section.describe": "විස්තර මෙහි ඇතුළත් කරන්න",
   "request.management.report.incidents.section.listitem1": "ඔබේ කාරණය පැහැදිලි කරන්න",

@@ -707,19 +707,19 @@ function IncidentFormInternal(props) {
               <Paper className={classes.paper}>
               <div className={classes.paper2}>
               <ul className={props.classes.list}>
-              <li><Typography style={{ width: '100%' }} align="left" variant="subtitle2" marginTop="20">
-                {f({ id: "request.management.report.incidents.helper.text", defaultMessage: "*fields are mandatory" })}
+              <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text", defaultMessage: "Fields denoted with an * are mandatory." })}
             </Typography></li>
-            <li><Typography style={{ width: '100%' }} align="left" variant="subtitle2" marginTop="20">
-                {f({ id: "request.management.report.incidents.helper.text2", defaultMessage: "Select your language of preference and fill in the form below." })}
+            <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text2", defaultMessage: "Select your language of preference and then fill in the form below." })}
+            </Typography></li>
+            <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text3", defaultMessage: "Include the Request Date/Time. If the request is made by call, the request date is the date of the call. If the request is made by email, letter, and fax, it is the date provided in those modes." })}
+            </Typography></li>
+            <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text4", defaultMessage: 'Request on behalf of someone - If a request is made on behalf of someone, click "Yes" and fill in the Recipient Information. If not, click "No"' })}
             </Typography></li>
                     </ul>
-              {/* <Typography style={{ width: '100%' }} align="left" variant="" marginTop="20">
-                {f({ id: "request.management.report.incidents.helper.text", defaultMessage: "*fields are mandatory" })}
-            </Typography>
-            <Typography style={{ width: '100%' }} align="left" variant="" marginTop="20">
-                {f({ id: "request.management.report.incidents.helper.text2", defaultMessage: "Select your language of preference and fill in the form below." })}
-            </Typography> */}
             </div>
             <br/>
             <Grid item xs={12}>
@@ -1703,12 +1703,12 @@ function IncidentFormInternal(props) {
                         <Typography variant="h5" gutterBottom>
                         {f({ id: "request.management.incident.create.recipient_information", defaultMessage: "Recipient Information" })}
                         </Typography>
-                        <div className={classes.paper2}>
+                        {/* <div className={classes.paper2}>
                         <ul className={props.classes.list}>
                         <li><Typography style={{ width: '100%' }} align="left" variant="subtitle2" marginTop="20">
                             {f({ id: "request.management.report.incidents.section.location.info", defaultMessage: "If the location where help is required differs from your address, please fill in this section w/ the location details." })}
                         </Typography></li>
-                    </ul></div>
+                    </ul></div> */}
                         <Grid container spacing={24}>
                         <Grid item xs={12} sm={4}>
                         <FormControl className={classes.title} error={touched.recipientTitle ? errors.recipientTitle : false} component="fieldset">

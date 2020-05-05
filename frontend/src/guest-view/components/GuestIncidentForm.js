@@ -96,7 +96,14 @@ const styles = (theme) => ({
     marginLeft:56,
     marginBottom:-20,
     marginTop:33
-  }
+  },
+  paper2: {
+    padding: theme.spacing.unit * 2,
+    background: "#ebf5fa",
+    marginBottom: 10,
+    marginRight:15,
+    marginTop:15
+  },
 });
 
 const VerticalLinearStepper = (props) => {
@@ -1089,29 +1096,19 @@ const VerticalLinearStepper = (props) => {
           defaultMessage: "Report Complaint",
         })}
       </Typography>
-      <Typography
-        style={{ width: "100%" }}
-        align="left"
-        variant=""
-        marginTop="20"
-      >
-        {f({
-          id: "request.management.report.incidents.helper.text",
-          defaultMessage: "*fields are mandatory",
-        })}
-      </Typography>
-      <Typography
-        style={{ width: "100%" }}
-        align="left"
-        variant=""
-        marginTop="20"
-      >
-        {f({
-          id: "request.management.report.incidents.helper.text2",
-          defaultMessage:
-            "Select your language of preference and fill in the form below.",
-        })}
-      </Typography>
+      <div className={classes.paper2}>
+              <ul className={props.classes.list}>
+              <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text", defaultMessage: "Fields denoted with an * are mandatory." })}
+            </Typography></li>
+            <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text5", defaultMessage: "Please select your language of preference and then fill in the form below." })}
+            </Typography></li>
+            <li><Typography style={{ width: '100%' }} align="left" variant="subtitle1" marginTop="20">
+                {f({ id: "request.management.report.incidents.helper.text6", defaultMessage: 'Request on behalf of someone - If a request is made on behalf of someone, click "Yes" and fill in the Recipient Information. If not, click "No"' })}
+            </Typography></li>
+                    </ul>
+            </div>
       <Grid item xs={12}>
                         <FormControl className={classes.group} error={formErrors.languageErrorMsg ? true : false} component="fieldset">
                         <FormLabel component="legend">{f({ id: "request.management.incident.create.location.language", defaultMessage: "Select Language*" })}</FormLabel>

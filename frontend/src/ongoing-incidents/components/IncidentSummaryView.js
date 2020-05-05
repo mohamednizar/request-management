@@ -267,13 +267,20 @@ function ContactTab(props) {
                         <Grid container spacing={24}>
                             <Grid item xs>
                                 <Typography variant="caption" className={classes.label}> {f({id: "request.management.incident.create.reporter.name"})} </Typography>
-                                <Typography gutterBottom> {reporter.name} </Typography>
+                                <Typography gutterBottom> {(reporter.title=="MR" ? "Mr. " : reporter.title=="MS" ? "Ms. " : reporter.title=="MRS" ? "Mrs. " : "Rev. ") + reporter.name} </Typography>
                             </Grid>
                         </Grid>
 
                         <Grid container spacing={24}>
                             <Grid item xs>
-                                <Typography variant="caption" className={classes.label}> Landline {f({id: "request.management.incident.create.reporter.mobile"})} </Typography>
+                                <Typography variant="caption" className={classes.label}> {f({id: "request.management.report.incidents.contact.nic"})} </Typography>
+                                <Typography gutterBottom> {reporter.nic} </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={24}>
+                            <Grid item xs>
+                                <Typography variant="caption" className={classes.label}>{f({id: "request.management.incident.create.reporter.telephone"})} </Typography>
                                 <Typography gutterBottom> {reporter.telephone} </Typography>
                             </Grid>
                         </Grid>
@@ -298,12 +305,12 @@ function ContactTab(props) {
                                 <Typography gutterBottom> {reporter.address} </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={24}>
+                        {/* <Grid container spacing={24}>
                             <Grid item xs>
                                 <Typography variant="caption" className={classes.label}> {f({id: "request.management.incident.create.location.description"})} </Typography>
                                 <Typography gutterBottom> {incident.location} </Typography>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
 
                     </Paper>
                 </Grid>
@@ -394,14 +401,21 @@ function RecipientTab(props) {
 
                         <Grid container spacing={24}>
                             <Grid item xs>
-                                <Typography variant="caption" className={classes.label}> {f({id: "request.management.incident.create.reporter.name"})} </Typography>
-                                <Typography gutterBottom> {recipient.name} </Typography>
+                                <Typography variant="caption" className={classes.label}> {f({id: "request.management.incident.create.recipient.name"})} </Typography>
+                                <Typography gutterBottom>{(recipient.title=="MR" ? "Mr. " : recipient.title=="MS" ? "Ms. " : recipient.title=="MRS" ? "Mrs. " : "Rev. ") + recipient.name} </Typography>
                             </Grid>
                         </Grid>
 
                         <Grid container spacing={24}>
                             <Grid item xs>
-                                <Typography variant="caption" className={classes.label}> Landline {f({id: "request.management.incident.create.reporter.mobile"})} </Typography>
+                                <Typography variant="caption" className={classes.label}> {f({id: "request.management.report.incidents.contact.nic"})} </Typography>
+                                <Typography gutterBottom> {recipient.nic} </Typography>
+                            </Grid>
+                        </Grid>
+
+                        <Grid container spacing={24}>
+                            <Grid item xs>
+                                <Typography variant="caption" className={classes.label}>{f({id: "request.management.incident.create.reporter.telephone"})} </Typography>
                                 <Typography gutterBottom> {recipient.telephone} </Typography>
                             </Grid>
                         </Grid>
@@ -426,12 +440,12 @@ function RecipientTab(props) {
                                 <Typography gutterBottom> {recipient.address} </Typography>
                             </Grid>
                         </Grid>
-                        <Grid container spacing={24}>
+                        {/* <Grid container spacing={24}>
                             <Grid item xs>
                                 <Typography variant="caption" className={classes.label}> {f({id: "request.management.incident.create.location.description"})} </Typography>
                                 <Typography gutterBottom> {recipient.location} </Typography>
                             </Grid>
-                        </Grid>
+                        </Grid> */}
 
                         
 

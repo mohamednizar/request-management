@@ -261,6 +261,8 @@ class DomainContainer extends React.Component {
             switch (notification.notification_type) {
                 case 'INCIDENT_ASSIGNED':
                     return 'Issue Assigned'
+                case 'INCIDENT_CLOSED':
+                        return 'Issue Closed'
                 default:
                     return 'notification'
             }
@@ -317,7 +319,7 @@ class DomainContainer extends React.Component {
 
                             {userCan(signedInUser, null, USER_ACTIONS.CAN_REVIEW_INCIDENTS) && (
                                 // <spanner>
-                                    <Button variant={selectedMainSection === 'review-complaints' || selectedMainSection === 'review-inquiries' ? 'outlined' : 'text'}
+                                <Button variant={selectedMainSection === 'review' ? 'outlined' : 'text'}
                                         component={ReviewComplaintsLink} color="inherit" aria-owns="review-menu">Review</Button>
                                 // </spanner>
                             )}

@@ -317,7 +317,7 @@ class DomainContainer extends React.Component {
 
                             {userCan(signedInUser, null, USER_ACTIONS.CAN_REVIEW_INCIDENTS) && (
                                 // <spanner>
-                                    <Button variant={selectedMainSection === 'review-complaints' || selectedMainSection === 'review-inquiries' ? 'outlined' : 'text'}
+                                    <Button variant={selectedMainSection === 'review' ? 'outlined' : 'text'}
                                         component={ReviewComplaintsLink} color="inherit" aria-owns="review-menu">Review</Button>
                                 // </spanner>
                             )}
