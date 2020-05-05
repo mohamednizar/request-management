@@ -7,6 +7,7 @@ import * as incidentsApi from '../../api/incident';
 
 import SearchForm from "./SearchForm";
 import { Grid, Button } from "@material-ui/core";
+import Chip from '@material-ui/core/Chip';
 import IncidentListReview from "./IncidentListReview";
 
 const styles = theme => ({
@@ -24,6 +25,11 @@ const styles = theme => ({
   },
   exportButton: {
     marginLeft: "10px"
+  },
+  chip:{
+    padding: theme.spacing.unit,
+    fontSize: '1.1rem',
+    fontWeight: 400,
   }
 });
 
@@ -80,15 +86,16 @@ function ArchiveIncidentListView({ classes, ...props }) {
         showClosed={false}
         {...props} />
       <Grid container direction={"row"} className={classes.exportContainer}>
-        <Grid item>
-          <Button variant={"contained"} onClick={() => handleExportClick("csv")} className={classes.exportButton}>
+        <Grid item xs={6}>
+          <Button variant={"contained"} onClick={() => handleExportClick("csv")} className={classes.exportButton} disabled>
             Export as CSV
           </Button>
-        </Grid>
-        <Grid item>
-          <Button variant={"contained"} onClick={() => handleExportClick("html")} className={classes.exportButton}>
+          <Button variant={"contained"} onClick={() => handleExportClick("html")} className={classes.exportButton} disabled>
             Export as PDF
           </Button>
+        </Grid>
+        <Grid item xs={6} style={{ textAlign:"right"}}>
+        <Chip label={"Total: "+incidents.paging.count} className={classes.chip} color="primary" />
         </Grid>
       </Grid>
       <IncidentListReview
