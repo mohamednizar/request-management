@@ -11,7 +11,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from django.db.models import Q
 
-from .models import Incident, StatusType, SeverityType, ReopenWorkflow as Reopened, CannedResponse, IncidentType
+from .models import Incident, StatusType, SeverityType, ReopenWorkflow as Reopened, \
+    CannedResponse, IncidentType, Reporter
 from django.contrib.auth.models import User, Group, Permission
 from .serializers import (
     IncidentSerializer,
@@ -194,6 +195,11 @@ class IncidentList(APIView, IncidentResultsSetPagination):
 
         results = self.paginate_queryset(incidents, request, view=self)
         serializer = IncidentSerializer(results, many=True)
+        all_results = list(serializer.data)
+        for result in all_results:
+            reporter = Reporter.objects.get(id=result["reporter"])
+            result["reporterTitle"] = reporter.title
+            result["reporterName"] = reporter.name
         return self.get_paginated_response(serializer.data)
 
     def post(self, request, format=None):

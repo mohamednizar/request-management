@@ -148,23 +148,20 @@ export default function TempReportList(){
         <Paper style={{padding: 20}}>
             <Grid container spacing={24}>
                 <Grid item xs>
-                    <Typography variant="h6"> {f({id: "request.management.report.view_reports", defaultMessage: "View Reports"})} </Typography>
+                    <Typography variant="h5"> {f({id: "request.management.report.view_reports", defaultMessage: "View Reports"})} </Typography>
+                    <ul>
+                      <li><Typography variant="h6"> {f({id: "request.management.report.cat_reports", defaultMessage: "View Reports"})} </Typography></li>
+                    </ul>
                     <List>
                         <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=daily_category`} target="_blank">
                             <ListItemText primary={f({id: "request.management.report.daily_summary_by_category", defaultMessage: "Daily Summary Report - Total number of requests received by category"})} />
                         </ListItemLink>
-                        {/* <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=daily_category_closed`} target="_blank">
+                        <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=daily_category_closed`} target="_blank">
                             <ListItemText primary={f({id: "request.management.report.daily_closed_request_category", defaultMessage: "Daily Summary Report - No. of requests closed by category"})} />
-                        </ListItemLink> */}
+                        </ListItemLink>
                         <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=weekly_closed_request_category`} target="_blank">
                             <ListItemText primary={f({id: "request.management.report.weekly_closed_request_category", defaultMessage: "Weekly Summary Report - No. of requests closed by Category"})} />
                         </ListItemLink>
-                        {/* <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=weekly_closed_request_organization`} target="_blank">
-                            <ListItemText primary={f({id: "request.management.report.weekly_closed_request_organization", defaultMessage: "Weekly Summary Report - No. of requests closed by organization"})} />
-                        </ListItemLink> */}
-                        {/* <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=daily_closed_request_organization`} target="_blank">
-                            <ListItemText primary={f({id: "request.management.report.daily_closed_request_organization", defaultMessage: "Daily Summary Report - No. of requests closed by organization"})} />
-                        </ListItemLink> */}
                     </List>
                     <form
                             // className={classes.container}
@@ -222,6 +219,17 @@ export default function TempReportList(){
                         </ExpansionPanelDetails>
                     </ExpansionPanel>
                     </form>
+                    <ul>
+                      <li><Typography variant="h6"> {f({id: "request.management.report.org_reports", defaultMessage: "View Reports"})} </Typography></li>
+                    </ul>
+                    <List>
+                    <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=weekly_closed_request_organization`} target="_blank">
+                            <ListItemText primary={f({id: "request.management.report.weekly_closed_request_organization", defaultMessage: "Weekly Summary Report - No. of requests closed by organization"})} />
+                        </ListItemLink>
+                        <ListItemLink href={`${API_BASE_URL}/pdfgen/?template_type=daily_closed_request_organization`} target="_blank">
+                            <ListItemText primary={f({id: "request.management.report.daily_closed_request_organization", defaultMessage: "Daily Summary Report - No. of requests closed by organization"})} />
+                        </ListItemLink>
+                    </List>
                     {/* <form
                             // className={classes.container}
                             noValidate

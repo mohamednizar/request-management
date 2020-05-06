@@ -106,23 +106,30 @@ function IncidentList({
 
   return (
     <Table className={classes.table}>
-      {/* <colgroup>
+      <colgroup>
+      <col style={{ width: "2%" }} />
         <col style={{ width: "5%" }} />
         <col style={{ width: "5%" }} />
-        <col style={{ width: "5%" }} />
+        <col style={{ width: "48%" }} />
         <col style={{ width: "5%" }} />
         <col style={{ width: "30%" }} />
-        <col style={{ width: "40%" }} />
-      </colgroup> */}
+        <col style={{ width: "5%" }} />
+        <col style={{ width: "5%" }} />
+        <col style={{ width: "5%" }} />
+      </colgroup>
       <TableHead>
         <TableRow>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.refid"})}</CustomTableCell>
-          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.created_date"})}</CustomTableCell>
-          <CustomTableCell align="center">{f({id: "request.management.incident.create.location.district"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.city"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.reporter"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.date"})}</CustomTableCell>
+          {/* <CustomTableCell align="center">{f({id: "request.management.incident.create.location.district"})}</CustomTableCell> */}
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.channel"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.category"})}</CustomTableCell>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.status"})}</CustomTableCell>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.severity"})}</CustomTableCell>
-          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.category"})}</CustomTableCell>
-          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.description"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.response_time"})}</CustomTableCell>
+          {/* <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.description"})}</CustomTableCell> */}
           {/* <CustomTableCell align="center">Final Resolution</CustomTableCell> */}
         </TableRow>
       </TableHead>
@@ -140,11 +147,31 @@ function IncidentList({
               <CustomTableCell align="left">
                 <p>{row.refId}</p>
               </CustomTableCell>
+              <CustomTableCell align="center">
+                <p>{row.city}</p>
+              </CustomTableCell>
+              <CustomTableCell align="center">
+              <p>{row.reporterName}</p>
+            </CustomTableCell>
               <CustomTableCell align="left">
                 <p>{moment(row.createdDate).format("YYYY-MM-DD  h:mm a")}</p>
               </CustomTableCell>
-              <CustomTableCell align="center">
+              {/* <CustomTableCell align="center">
                 <p>{districts.byCode[row.district] && districts.byCode[row.district]["name"]}</p>
+              </CustomTableCell> */}
+              <CustomTableCell scope="center">
+              <p>
+                {channels.map((value, index) =>
+                  value.id == row.infoChannel ? value.name : null
+                )}
+              </p>
+            </CustomTableCell>
+            <CustomTableCell align="left">
+                <p>
+                  {categories.map((value, index) =>
+                    value.id == row.category ? value.sub_category : null
+                  )}
+                </p>
               </CustomTableCell>
               <CustomTableCell align="center">
                 <p>{row.currentStatus}</p>
@@ -152,20 +179,16 @@ function IncidentList({
             <CustomTableCell align="center">
                 <p>{row.severity}</p>
             </CustomTableCell>
-              <CustomTableCell align="left">
-                <p>
-                  {categories.map((value, index) =>
-                    value.id == row.category ? value.sub_category : null
-                  )}
-                </p>
-              </CustomTableCell>
-              <CustomTableCell>
+            <CustomTableCell align="center">
+              <p>{row.response_time} h</p>
+            </CustomTableCell>
+              {/* <CustomTableCell>
                 <p>
                   {row.description.length > 40
                     ? row.description.substr(0, 40) + ".."
                     : row.description}
                 </p>
-              </CustomTableCell>
+              </CustomTableCell> */}
               {/* <CustomTableCell align="center">
                     <p>{row.current_decision}</p>
                   </CustomTableCell> */}

@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { withRouter } from "react-router";
 import { useIntl } from "react-intl";
+import moment from "moment";
 
 const CustomTableCell = withRouter(
   withStyles((theme) => ({
@@ -100,24 +101,31 @@ function IncidentList({
   handlePageChange,
 }) {
   const categories = useSelector((state) => state.shared.categories);
-  const { formatMessage: f } = useIntl();
+  const channels = useSelector((state) => state.shared.channels);
 
+  const { formatMessage: f } = useIntl();
   return (
     <Table className={classes.table}>
       <colgroup>
         <col style={{ width: "5%" }} />
-        <col style={{ width: "35%" }} />
-        <col style={{ width: "35%" }} />
         <col style={{ width: "10%" }} />
+        <col style={{ width: "15%" }} />
+        <col style={{ width: "20%" }} />
+        <col style={{ width: "15%" }} />
+        <col style={{ width: "20%" }} />
         <col style={{ width: "10%" }} />
-        <col style={{ width: "10%" }} />
-        {/* <col style={{ width: "2%" }} /> */}
+        <col style={{ width: "5%" }} />
+        <col style={{ width: "5%" }} />
       </colgroup>
       <TableHead>
         <TableRow>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.refid"})}</CustomTableCell>
+          {/* <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.description"})}</CustomTableCell> */}
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.city"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.reporter"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.date"})}</CustomTableCell>
+          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.channel"})}</CustomTableCell>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.category"})}</CustomTableCell>
-          <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.description"})}</CustomTableCell>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.status"})}</CustomTableCell>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.severity"})}</CustomTableCell>
           <CustomTableCell align="center">{f({id: "request.management.home.incidents.list.response_time"})}</CustomTableCell>
@@ -136,18 +144,34 @@ function IncidentList({
             <CustomTableCell scope="center">
               <p>{row.refId}</p>
             </CustomTableCell>
+            {/* <CustomTableCell>
+              <p className="description">
+                {row.description.length > 40
+                  ? row.description.substr(0, 40) + ".."
+                  : row.description}
+              </p>
+            </CustomTableCell> */}
+            <CustomTableCell align="center">
+              <p>{row.city}</p>
+            </CustomTableCell>
+            <CustomTableCell align="center">
+              <p>{row.reporterName}</p>
+            </CustomTableCell>
+            <CustomTableCell align="center">
+              <p>{moment(row.createdDate).format("YYYY-MM-DD  h:mm a")}</p>
+            </CustomTableCell>
+            <CustomTableCell scope="center">
+              <p>
+                {channels.map((value, index) =>
+                  value.id == row.infoChannel ? value.name : null
+                )}
+              </p>
+            </CustomTableCell>
             <CustomTableCell scope="center">
               <p>
                 {categories.map((value, index) =>
                   value.id == row.category ? value.sub_category : null
                 )}
-              </p>
-            </CustomTableCell>
-            <CustomTableCell>
-              <p className="description">
-                {row.description.length > 40
-                  ? row.description.substr(0, 40) + ".."
-                  : row.description}
               </p>
             </CustomTableCell>
             <CustomTableCell align="center">
@@ -159,6 +183,7 @@ function IncidentList({
             <CustomTableCell align="center">
               <p>{row.response_time} h</p>
             </CustomTableCell>
+            
             {/* <CustomTableCell align="center">
                 <p>{row.category}</p>
               </CustomTableCell> */}

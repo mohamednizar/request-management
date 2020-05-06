@@ -14,10 +14,9 @@ import os
 
 from .services import get_police_division_summary, get_category_summary, \
     get_mode_summary, get_severity_summary, get_status_summary, get_subcategory_summary, get_district_summary, \
-    get_incident_date_summary, get_daily_category_data,get_closed_daily_category_data, \
+    get_incident_date_summary, get_daily_category_data, get_closed_daily_category_data, \
     get_weekly_closed_complain_category_data, get_weekly_closed_complain_organization_data, get_daily_closed_complain_organization_data, \
-    get_organizationwise_data_with_timefilter, \
-    get_total_requests_by_category_for_a_selected_time, get_category_data_by_date_range
+    get_organizationwise_data_with_timefilter, get_category_data_by_date_range
 from .functions import apply_style, decode_column_names, incident_type_title, incident_type_query
 
 '''
@@ -41,15 +40,7 @@ class ReportingAccessView(APIView):
         json_dict = {}
         template_type = request.query_params.get('template_type')
 
-        if (template_type == "simple-template"):
-            file_dict = {}
-            file_dict['template'] = "exTemplateBootstrap.js"
-            file_dict['title'] = "This is my title on test"
-
-            # prepare all data to be on json object 'file'
-            json_dict['file'] = file_dict
-
-        elif (template_type == "daily_category"):
+        if (template_type == "daily_category"):
             """
             daily_summery_report_categorywise
             GET parameters => /?template_type=daily_category
@@ -70,8 +61,6 @@ class ReportingAccessView(APIView):
             """
             start_time = request.query_params.get('startTime').replace('"', '') + ":00"
             end_time = request.query_params.get('endTime').replace('"', '') + ":00"
-
-            # json_dict["file"] = get_total_requests_by_category_for_a_selected_time(start_time, end_time)
             json_dict["file"] = get_category_data_by_date_range(start_time, end_time)
 
         elif (template_type == "organizationwise_total_request_with_timefilter"):
@@ -104,15 +93,8 @@ class ReportingAccessView(APIView):
             """
             json_dict["file"] = get_daily_closed_complain_organization_data()
 
-        elif (template_type == "total_requests_by_category_for_a_selected_time"):
-            """
-            Total_requests_by_category_for_a_selected_time
-            GET parameters => /?total_requests_by_category_for_a_selected_time
-            """
-            json_dict["file"] = get_total_requests_by_category_for_a_selected_time()
-
-        # print(json_dict)
         request_data = json.dumps(json_dict)
+        # get the pdf
         res = requests.post(url=endpoint_uri, data=request_data, headers={'content-type': 'application/json'})
 
         if res.status_code == 200:

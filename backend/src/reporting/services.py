@@ -235,6 +235,7 @@ def get_weekly_closed_complain_organization_data():
     file_dict["organizations"] = get_organization_dict(incidents, "CLOSED")
 
     file_dict["total"] = len(incidents)
+    file_dict["totalOpenedCount"] = get_total_opened_incident_count()
 
     return file_dict
 
@@ -251,20 +252,7 @@ def get_daily_closed_complain_organization_data():
     file_dict["organizations"] = get_organization_dict(incidents, "CLOSED")
 
     file_dict["total"] = len(incidents)
-
-    return file_dict
-
-def get_total_requests_by_category_for_a_selected_time(start_time, end_time):
-    """ This returns the total requests by category during the input time period """
-
-    # TODO: see if this is used.
-    file_dict = {}
-    file_dict["template"] = "/incidents/complaints/daily_summery_report_categorywise_with_timefilter.js"
-    file_dict["date"] = date.today().strftime("%Y/%m/%d")
-
-    incidents = Incident.objects.filter(created_date__range=(start_time, end_time)).values("category") \
-        .annotate(total=Count('category'))
-    file_dict["total_per_category"] = list(incidents)
+    file_dict["totalOpenedCount"] = get_total_opened_incident_count()
 
     return file_dict
 
